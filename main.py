@@ -5,7 +5,7 @@ KEYS = perfect_squares.keys()
 
 #get factors of a number
 def get_factors(n: int):
-        if n in keys: return PERFECT_SQUARES[n]
+        if n in KEYS: return PERFECT_SQUARES[n]
         
         factors = np.array([], int)
         for i in range(1, n+ + 1):
@@ -23,7 +23,7 @@ def greatest_perfect_square(factors: np.ndarray):
         #makes list of all perfect squares in factors
         squares = np.array([], int)
         for factor in factors:
-                if factor[0] in keys: squares = np.append(squares, factor)
+                if factor[0] in KEYS: squares = np.append(squares, factor)
                         
         #if there are no perfect squares return greatest common factor
         if np.size(squares) == 0: return factors[np.argsort(factors[:, 0])[-1]]
@@ -41,7 +41,7 @@ def simplify(n: int):
                 for i in squared: 
                         f = simplify(i)
                         #check if number is a perfect square
-                        if not type(f) == str and i in keys: 
+                        if not type(f) == str and i in KEYS: 
                                 final += [f]
                         #if given a list add it to original so it stays flat
                         elif type(f) == list and len(f) > 1: 
