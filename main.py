@@ -43,7 +43,7 @@ def finalize_expression(exp: list):
         return f"{sum}{'*'.join(sqrts)}"
 
 def main():
-        x = int(input())
+        x = int(input("Enter a radical to simplify: "))
         y = simplify(x)
         print(finalize_expression(y))
         
