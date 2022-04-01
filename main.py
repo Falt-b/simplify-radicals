@@ -2,13 +2,11 @@ import math
 
 
 def get_factors(n: int):
-    return [
-        (i, int(n / i)) for i in range(1, n + 1) if n % i == 0 and i != 1 and i != n
-    ]
+    return [i for i in range(2, n - 1) if n % i == 0]
 
 
 def get_perfect_squares(factors: list):
-    return [i for i in factors if i[0] == math.isqrt(i[0]) ** 2]
+    return [i for i in factors if i == math.isqrt(i) ** 2]
 
 
 def get_greatest_factor(factors: list):
@@ -31,11 +29,11 @@ def simplify(n: int):
     if len(squares) == 0:
         #find greatest factor in factors and simplify
         greatest_factor = get_greatest_factor(factored)
-        return "*".join((simplify(greatest_factor[0]), simplify(greatest_factor[1])))
+        return "*".join((simplify(greatest_factor), simplify(int(n / greatest_factor))))
 
     #find greatest factors in the perfect squares and simplify
     greatest_factor = get_greatest_factor(squares)
-    return "*".join((simplify(greatest_factor[0]), simplify(greatest_factor[1])))
+    return "*".join((simplify(greatest_factor), simplify(int(n / greatest_factor))))
 
 
 def main():
