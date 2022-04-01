@@ -6,7 +6,7 @@ def get_factors(n: int):
 
 
 def get_perfect_squares(factors: list):
-    return [i for i in factors if i == math.isqrt(i) ** 2]
+    return [i for i in factors if i == int(math.isqrt(i) ** 2)]
 
 
 def get_greatest_factor(factors: list):
